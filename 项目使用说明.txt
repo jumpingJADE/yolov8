@@ -1,0 +1,20 @@
+【博主环境】
+*可以在此检测项目基础上增加计数功能，统计当前画面目标总数，或者增加追踪功能，实现追踪计数！
+python==3.8  pytorch==1.8.1  torchvision==0.9.1
+1、搭建环境 
+建议在anaconda中新建虚拟环境配置，然后在pycharm打开工程，再导入anaconda环境
+确保正确安装requirements.txt中的包，可用清华源，下载块！
+
+2、训练好的模型+评估指标曲线+数据集可视化图存放在“ultralytics\yolo\v8\detect\runs\detect”文件夹(资源内不含数据，需要数据请查找博主资源付费下载，或私信博主)
+
+3、开始检测识别
+a.打开predict.py修改34行模型路径，照葫芦画瓢修改；
+b.需要检测的图片或视频预先存放在“\ultralytics\assets”文件夹
+c.运行predict.py，开始检测。检测结果会保存在ultralytics/yolo/v8/detect/runs/detect文件夹下
+
+4、训练自己的模型
+a.准备数据集，可参考YOLOv5，拆分为train、val即可，标签为txt
+b.在yolo\v8\detect\data文件夹下新建.yaml文件，照葫芦画瓢，仿照coco128.yaml
+c.修改tarin.py中的238行，改成自己新建yaml的路径
+d.GPU训练(注释掉241行，修改device参数为0)，若CPU训练(注释掉242行即可)
+e.运行train.py开始训练，当精度不在增加时，会自动停止训练。模型保存在ultralytics\yolo\v8\detect\runs\detect文件夹
